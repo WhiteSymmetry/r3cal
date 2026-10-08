@@ -31,8 +31,7 @@ requirements:
     - setuptools
     - wheel
   run:
-   - python >=3.11 
-   - tkinter
+   - python >=3.11
    - pip
 
 # tests to validate that the package works as expected
