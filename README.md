@@ -18,6 +18,10 @@ as an **embeddable widget** inside your own Tkinter application.
 pip install r3cal
 ```
 
+```bash
+conda install bilgi::r3cal -y
+```
+
 Python **3.11+** is required. Tkinter ships with the standard library on
 Windows and macOS. On Linux you may need:
 
@@ -268,6 +272,10 @@ olarak hem de kendi Tkinter uygulamanıza **gömülebilir bir bileşen** olarak 
 pip install r3cal
 ```
 
+```bash
+conda install bilgi::r3cal -y
+```
+
 **Python 3.11+** gereklidir. Tkinter, Windows ve macOS'ta standart kütüphaneyle
 birlikte gelir. Linux'ta ayrıca kurmanız gerekebilir:
 
@@ -510,4 +518,82 @@ from .r3cal import R3Cal
 
 R3Cal(tk.Tk())
 tk.mainloop()
+```
+
+---
+
+# Pixi:
+
+[![Pixi](https://img.shields.io/badge/Pixi-Pixi-brightgreen.svg)](https://prefix.dev/channels/bilgi)
+
+pixi init r3cal
+
+cd r3cal
+
+pixi workspace channel add https://repo.prefix.dev/bilgi --prepend
+
+✔ Added https://repo.prefix.dev/bilgi
+
+pixi add r3cal
+
+✔ Added r3cal >=0.1.2,<2
+
+pixi install
+
+pixi shell
+
+pixi run python -c "import r3cal; print(r3cal.__version__)"
+
+### Çıktı: 0.1.2
+
+pixi remove r3cal
+
+conda install -c https://prefix.dev/bilgi r3cal
+
+pixi run python -c "import r3cal; print(r3cal.__version__)"
+
+### Çıktı: 0.1.2
+
+pixi run pip list | grep r3cal
+
+### r3cal  0.1.2
+
+pixi run pip show r3cal
+
+Name: r3cal
+
+Version: 0.1.2
+
+Summary: r3cal: Resistor Color Code Calculator: Direnç Renk Kodu Hesaplayıcı
+
+Home-page: https://github.com/WhiteSymmetry/r3cal
+
+Author: Mehmet Keçeci
+
+Author-email: Mehmet Keçeci <...>
+
+License: AGPL-3.0-or-later License
+
+Copyright (c) 2026 Mehmet Keçeci
+
+## Citation
+
+If this library was useful to you in your research, please cite us. Following the [GitHub citation standards](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-citation-files), here is the recommended citation.
+
+https://github.com/WhiteSymmetry/r3cal
+
+https://pypi.org/project/r3cal
+
+https://prefix.dev/channels/bilgi/packages/r3cal
+
+https://anaconda.org/channels/bilgi/packages/r3cal
+
+### BibTeX
+
+
+### APA
+
+```
+
+
 ```
