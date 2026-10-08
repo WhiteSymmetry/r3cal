@@ -155,25 +155,27 @@ def fmt_resistance(val):
 
 
 # ==================== UYGULAMA ====================
-class r3cal:
+class R3Cal:
     # ---------- VARSAYILAN FONT BOYUTLARI ----------
     BASE_UI     = 11   # Label, Combobox, Radiobutton, Button, Entry
     BASE_HINT   = 11   # İpucu ve renk listesi satırları
     BASE_TITLE  = 12   # Bölüm başlıkları (Bands / Results)
     BASE_RESULT = 12   # Sonuç değerleri
 
-    def __init__(self, root):
-        self.root = root
+
+    def __init__(self, container):
+        self.container = container              # widget'lar buraya yerleşir
+        self.container = container.winfo_toplevel()  # gerçek pencere (Tk/Toplevel)
 
         # ---------- Ölçek ----------
         self.scale = 1.0   # A+/A− butonları bunu değiştirir; 1.0 = yukarıdaki sabit boyutlar
 
+        # Stil ve fontlar
         self.style = ttk.Style()
         try:
             self.style.theme_use("clam")
         except tk.TclError:
             pass
-
         self._configure_styles()
 
         # ---------- Durum ----------
@@ -213,22 +215,27 @@ class r3cal:
         st.configure("Result.TLabel",     font=("TkDefaultFont", result, "bold"))
 
         # Combobox'ın AÇILIR LİSTESİ için ayrı font ayarı
-        self.root.option_add("*TCombobox*Listbox.font", ("TkDefaultFont", ui))
-        self.root.option_add("*TCombobox*Font",          ("TkDefaultFont", ui))
+        self.container.option_add("*TCombobox*Listbox.font", ("TkDefaultFont", ui))
+        self.container.option_add("*TCombobox*Font",          ("TkDefaultFont", ui))
 
     def _apply_geometry(self):
         s = self.scale
-        w = int(1150 * max(1.0, s * 0.85))
-        h = int(790 * max(1.0, s * 0.80))
-        self.root.geometry(f"{w}x{h}")
-        self.root.minsize(int(700 * max(1.0, s * 0.85)),
-                          int(680 * max(1.0, s * 0.80)))
-
+    
+        # Pencere boyutunu yalnızca Tk/Toplevel ise ayarla
+        toplevel = self.container.winfo_toplevel()
+        if isinstance(toplevel, (tk.Tk, tk.Toplevel)) and toplevel is self.container:
+            w = int(820 * max(1.0, s * 0.85))
+            h = int(790 * max(1.0, s * 0.80))
+            self.container.geometry(f"{w}x{h}")
+            self.container.minsize(int(700 * max(1.0, s * 0.85)),
+                              int(680 * max(1.0, s * 0.80)))
+    
+        # Widget genişlikleri her durumda ayarlanabilir
         band_lbl_w   = int(34 * s) if s >= 1.0 else 34
         combo_w      = int(30 * s) if s >= 1.0 else 30
         result_hdr_w = int(40 * s) if s >= 1.0 else 40
         preview_w    = max(3, int(3 * s))
-
+    
         for lbl in self.band_labels:
             lbl.config(width=band_lbl_w)
         for cb in self.band_combos:
@@ -237,13 +244,20 @@ class r3cal:
             pv.config(width=preview_w, height=1)
         for hdr in self.result_headers.values():
             hdr.config(width=result_hdr_w)
-
-        self.hint_label.config(wraplength=max(600, w - 40))
+    
+        # wrap uzunluğu: pencere genişliği bilinemiyorsa sabit bir değer kullan
+        try:
+            wrap = max(600, self.container.winfo_width() - 40)
+            if wrap < 100:            # henüz çizilmemişse
+                wrap = 780
+        except Exception:
+            wrap = 780
+        self.hint_label.config(wraplength=wrap)
 
     # ---------- Arayüz ----------
     def _build_ui(self):
         # Üst bar
-        top = ttk.Frame(self.root, padding=10)
+        top = ttk.Frame(self.container, padding=10)
         top.pack(fill="x")
 
         self.lang_label = ttk.Label(top, text="Language / Dil:")
@@ -265,7 +279,7 @@ class r3cal:
             self.radio_buttons[n] = rb
 
         # Bantlar
-        self.bands_frame = ttk.LabelFrame(self.root, text="Bands", padding=10)
+        self.bands_frame = ttk.LabelFrame(self.container, text="Bands", padding=10)
         self.bands_frame.pack(fill="x", padx=10, pady=(0, 5))
 
         for i in range(6):
@@ -291,13 +305,13 @@ class r3cal:
             self.band_frames.append(row)
             self.band_labels.append(lbl)
 
-        self.hint_label = ttk.Label(self.root, style="Hint.TLabel",
+        self.hint_label = ttk.Label(self.container, style="Hint.TLabel",
                                     foreground="gray", justify="left",
                                     wraplength=780)
         self.hint_label.pack(anchor="w", padx=14, pady=(0, 5))
 
         # Sonuçlar
-        self.results_frame = ttk.LabelFrame(self.root, text="Results", padding=12)
+        self.results_frame = ttk.LabelFrame(self.container, text="Results", padding=12)
         self.results_frame.pack(fill="both", expand=True, padx=10, pady=(5, 5))
 
         self.result_headers = {}
@@ -313,7 +327,7 @@ class r3cal:
             self.result_values[key] = v
 
         # Alt bar: A− / A+
-        bottom = ttk.Frame(self.root, padding=(10, 0, 10, 10))
+        bottom = ttk.Frame(self.container, padding=(10, 0, 10, 10))
         bottom.pack(fill="x")
 
         ttk.Button(bottom, text="A+", width=4,
@@ -372,7 +386,7 @@ class r3cal:
         self.current_band_map = BAND_MAP[count]
 
         # Başlıklar
-        self.root.title(t("app_title", lang))
+        self.container.title(t("app_title", lang))
         self.lang_label.config(text="Language / Dil:")
         self.band_count_label.config(text=t("band_count", lang))
         for n, rb in self.radio_buttons.items():
@@ -461,5 +475,5 @@ class r3cal:
 
 if __name__ == "__main__":
     root = tk.Tk()
-    r3cal(root)
+    R3Cal(root)
     root.mainloop()
