@@ -2,9 +2,9 @@
 r3cal: Resistor Color Code Calculator: Direnç Renk Kodu Hesaplayıcı
 """
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 __author__ = "Mehmet Keçeci"
-__main__ = "0.1.0"
+__main__ = "0.1.1"
 
 from .r3cal import (
     # Temel eğri sınıfları
@@ -20,7 +20,7 @@ from .r3cal import (
 
 __all__ = [
     "r3cal",
-    "t,
+    "t",
     "color_display",
     "combo_display",
     "band_label",
