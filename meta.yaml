@@ -1,13 +1,13 @@
-{% set version = "0.1.1" %}
+{% set version = "0.1.2" %}
 
 package:
   name: r3cal
-  version: 0.1.1
+  version: 0.1.2
 
 source:
   path: .  # Derlemeyi bu meta.yaml dosyasının bulunduğu dizinden yap
-  url: https://files.pythonhosted.org/packages/7b/39/22ef238d48561b032e589c65953a02c7f9f1b221f8756fee1e7e898ad483/r3cal-0.1.1.tar.gz
-  blake2b-256: 7b3922ef238d48561b032e589c65953a02c7f9f1b221f8756fee1e7e898ad483
+  url: 
+  blake2b-256: 
 
 channels:
   - conda-forge
