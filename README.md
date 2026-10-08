@@ -1,7 +1,7 @@
 # r3cal
 r3cal: Resistor Color Code Calculator: Direnç Renk Kodu Hesaplayıcı
 
-# grikod3 <img src="https://github.com/WhiteSymmetry/r3cal/blob/main/docs/r3cal-256.png" alt="r3cal" align="right" height="256"/>
+# grikod3 <img src="https://github.com/WhiteSymmetry/r3cal/blob/main/docs/r3cal-256.png" alt="r3cal" align="right" height="140"/>
 
 ---
 
