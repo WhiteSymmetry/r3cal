@@ -3,15 +3,6 @@ r3cal: Resistor Color Code Calculator: Direnç Renk Kodu Hesaplayıcı
 
 ---
 
-Example:
-
-import r3cal, tkinter as tk; r3cal.R3Cal(tk.Tk()); tk.mainloop()
-
----
-
-```markdown
-# r3cal
-
 **English** | [Türkçe](#türkçe)
 
 A modern, multilingual **resistor color code calculator** for Python.
@@ -27,7 +18,7 @@ as an **embeddable widget** inside your own Tkinter application.
 pip install r3cal
 ```
 
-Python **3.8+** is required. Tkinter ships with the standard library on
+Python **3.11+** is required. Tkinter ships with the standard library on
 Windows and macOS. On Linux you may need:
 
 ```bash
@@ -59,8 +50,10 @@ sudo dnf install python3-tkinter   # Fedora
 ### Standalone
 
 ```bash
-python -m r3cal
+!python -m r3cal
 ```
+
+import r3cal, tkinter as tk; r3cal.R3Cal(tk.Tk()); tk.mainloop()
 
 or
 
@@ -235,7 +228,7 @@ Any 4-band resistor with tolerance set to **Black** or **White** shows
 ## 🛠️ Development
 
 ```bash
-git clone https://github.com/<user>/r3cal.git
+git clone https://github.com/WhiteSymmetry/r3cal.git
 cd r3cal
 pip install -e .
 python -m r3cal
@@ -275,7 +268,7 @@ olarak hem de kendi Tkinter uygulamanıza **gömülebilir bir bileşen** olarak 
 pip install r3cal
 ```
 
-**Python 3.8+** gereklidir. Tkinter, Windows ve macOS'ta standart kütüphaneyle
+**Python 3.11+** gereklidir. Tkinter, Windows ve macOS'ta standart kütüphaneyle
 birlikte gelir. Linux'ta ayrıca kurmanız gerekebilir:
 
 ```bash
