@@ -1,0 +1,6 @@
+name: kececicurve
+channels:
+  - conda-forge
+  - bilgi
+dependencies:
+  - python
