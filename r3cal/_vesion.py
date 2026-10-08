@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # _version.py
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 __license__ = "AGPL-3.0-or-later"
 __description__ = "r3cal: Resistor Color Code Calculator: Direnç Renk Kodu Hesaplayıcı"
 __author__ = "Mehmet Keçeci"
