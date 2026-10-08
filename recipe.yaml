@@ -5,13 +5,13 @@ schema_version: 1
 # this sets up "context variables" (in this case name and version) that
 # can later be used in Jinja expressions
 context:
-  version: 0.1.0
+  version: 0.1.1
   name: r3cal
 
 # top level package information (name and version)
 package:
   name: r3cal
-  version: 0.1.0
+  version: 0.1.1
 
 source:
   url: https://pypi.org{{ name }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
