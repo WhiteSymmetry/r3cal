@@ -1,0 +1,58 @@
+# recipe.yaml
+# recipe-noarch-python.yaml
+schema_version: 1
+
+# this sets up "context variables" (in this case name and version) that
+# can later be used in Jinja expressions
+context:
+  version: 0.1.0
+  name: r3cal
+
+# top level package information (name and version)
+package:
+  name: r3cal
+  version: 0.1.0
+
+source:
+  url: https://pypi.org{{ name }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
+  sha256: 
+
+# build number (should be incremented if a new build is made, but version is not incrementing)
+build:
+  number: 1
+  script: python -m pip install --no-deps --ignore-installed .
+  noarch: python
+
+# the requirements at build and runtime
+requirements:
+  host:
+    - python
+    - pip
+    - setuptools
+    - wheel
+  run:
+   - python >=3.11 
+   - tkinter
+   - pip
+
+# tests to validate that the package works as expected
+#tests:
+#  requires: []  # veya boş liste
+#  - python:
+#      imports:
+#        - r3cal
+
+# information about the package
+about:
+  homepage: https://github.com/WhiteSymmetry/r3cal/
+  license: AGPL-3.0-or-later
+  summary: 'r3cal'
+  description: |
+    r3cal: Resistor Color Code Calculator: Direnç Renk Kodu Hesaplayıcı
+  repository: https://github.com/WhiteSymmetry/r3cal/
+  documentation: https://github.com/WhiteSymmetry/r3cal/
+
+# the below is conda-forge specific!
+extra:
+  recipe-maintainers:
+    - bilgi
