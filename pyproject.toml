@@ -1,0 +1,42 @@
+# pyproject.toml
+
+[build-system]
+requires = ["setuptools>=84.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "r3cal"
+version = "0.1.0"
+dynamic = ["keywords", "maintainers"]
+license = "AGPL-3.0-or-later"  # SPDX ID
+
+authors = [
+    { name="Mehmet Keçeci", email="enfo@tuta.io" },
+]
+description = "r3cal: Resistor Color Code Calculator: Direnç Renk Kodu Hesaplayıcı Modülü"
+readme = "README.md"
+requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Visualization",
+]
+
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest", "pytest-cov", "pytest-mock", "ruff"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+
+[project.urls]
+Homepage = "https://github.com/WhiteSymmetry/r3cal"
+Repository = "https://github.com/WhiteSymmetry/r3cal"
+
+[dependency-groups]
+build = [
+    "setuptools (>=84.0.0)",
+    "cython (>=3.2.4)"
+]
