@@ -8,7 +8,7 @@ __main__ = "0.1.1"
 
 from .r3cal import (
     # Temel eğri sınıfları
-    r3cal,
+    R3Cal,
     t,
     color_display,
     combo_display,
@@ -19,7 +19,7 @@ from .r3cal import (
 )
 
 __all__ = [
-    "r3cal",
+    "R3Cal",
     "t",
     "color_display",
     "combo_display",
