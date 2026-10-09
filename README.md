@@ -597,6 +597,6 @@ https://anaconda.org/channels/bilgi/packages/r3cal
 ### APA
 
 ```
-
+Keçeci, M. (2026). r3cal: Çok Dilli, Gömülebilir ve Standartlara Uygun Bir Direnç Renk Kodu Hesaplayıcı Kütüphanesi. Open Science Articles (OSAs), Zenodo. https://doi.org/10.5281/zenodo.23251543
 
 ```
