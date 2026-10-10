@@ -1,4 +1,4 @@
-# r3cal <img src="https://github.com/WhiteSymmetry/r3cal/blob/main/docs/r3cal-256.png" alt="r3cal" align="right" height="140"/>
+# r3cal <img src="https://github.com/WhiteSymmetry/r3cal/blob/main/docs/logo.png" alt="r3cal" align="right" height="140"/>
 
 ---
 
