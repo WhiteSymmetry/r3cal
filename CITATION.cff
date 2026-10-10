@@ -16,7 +16,7 @@ authors:
     orcid: 'https://orcid.org/0000-0001-9937-9839'
 identifiers:
   - type: doi
-    value: 
+    value: 10.5281/zenodo.23251543
 repository-code: 'https://github.com/WhiteSymmetry/r3cal'
 url: 'https://github.com/WhiteSymmetry/r3cal'
 repository: 'https://anaconda.org/bilgi/r3cal'
